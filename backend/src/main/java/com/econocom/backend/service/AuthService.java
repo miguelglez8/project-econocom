@@ -14,7 +14,6 @@ public class AuthService {
     private JwtUtil jwtUtil;
 
     public LoginResponse login(String email, String password) {
-
         // Simulación sin base de datos
         if (!email.equals("admin@test.com") || !password.equals("1234")) {
             throw new CredencialesException("Credenciales inválidas");
@@ -27,7 +26,6 @@ public class AuthService {
     }
 
     public String refreshToken(String refreshToken) {
-
         if (!jwtUtil.validateToken(refreshToken)) {
             throw new RefreshTokenException("Refresh token inválido");
         }
