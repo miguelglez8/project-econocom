@@ -10,7 +10,8 @@
     "ENTER": "ENTRAR",
     "SSO": "Otras formas de acceso:",
     "SSO_BTN": "ENTRAR CON SSO",
-    "REGISTER": "¿No tienes cuenta? Regístrate",
+    "NO_ACCOUNT": "¿No tienes cuenta?",
+    "REGISTER": "Regístrate",
     "LANGUAGE": "IDIOMA"
   }
 }

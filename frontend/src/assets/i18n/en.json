@@ -10,7 +10,8 @@
     "ENTER": "SIGN IN",
     "SSO": "Other sign-in methods:",
     "SSO_BTN": "SIGN IN WITH SSO",
-    "REGISTER": "Don't have an account? Sign up",
+    "NO_ACCOUNT": "Don't have an account?",
+    "REGISTER": "Sign up",
     "LANGUAGE": "LANGUAGE"
   }
 }

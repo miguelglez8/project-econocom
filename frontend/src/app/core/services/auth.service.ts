@@ -6,6 +6,7 @@ import { LoginResponse } from '../models/login-response.model';
 import { TokenService } from './token.service';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { SsoResponse } from '../models/sso-response';
 
 @Injectable({
   providedIn: 'root'
@@ -42,20 +43,21 @@ export class AuthService {
     window.location.href = `${this.API_URL}/sso`;
   }
 
-  handleSsoCallback(code: string): Observable<LoginResponse> {
-    return this.http.get<LoginResponse>(
+  handleSsoCallback(code: string): Observable<SsoResponse> {
+    return this.http.get<SsoResponse>(
       `${this.API_URL}/sso/callback?code=${code}`
     ).pipe(
-      tap(response => {
-        this.tokenService.setAccessToken(response.accessToken);
-        if (response.refreshToken) {
-          this.tokenService.setRefreshToken(response.refreshToken);
+      tap({
+        next: (response) => {
+          alert(response.message); // mensaje de éxito
+          window.location.href = "http://localhost:4200/"; // vuelve al inicio
+        },
+        error: (err) => {
+          // el backend puede devolver err.error.message
+          alert(err.error?.message || 'Error SSO desconocido');
+          window.location.href = "http://localhost:4200/"; // vuelve al inicio
         }
       })
     );
-  }
-
-  logout(): void {
-    this.tokenService.clearTokens();
   }
 }

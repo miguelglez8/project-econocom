@@ -25,23 +25,4 @@ export class TokenService {
   getRefreshToken(): string | null {
     return localStorage.getItem(REFRESH_TOKEN_KEY);
   }
-
-  clearTokens(): void {
-    localStorage.removeItem(TOKEN_KEY);
-    localStorage.removeItem(REFRESH_TOKEN_KEY);
-  }
-
-  isLogged(): boolean {
-    return !!this.getAccessToken();
-  }
-
-  isTokenExpired(): boolean {
-    const token = this.getAccessToken();
-    if (!token) return true;
-
-    const payload = JSON.parse(atob(token.split('.')[1]));
-    const expiration = payload.exp * 1000;
-
-    return Date.now() > expiration;
-  }
 }

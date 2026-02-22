@@ -10,7 +10,8 @@
     "ENTER": "SE CONNECTER",
     "SSO": "Autres méthodes de connexion :",
     "SSO_BTN": "SE CONNECTER AVEC SSO",
-    "REGISTER": "Vous n'avez pas de compte ? Inscrivez-vous",
+    "NO_ACCOUNT": "Vous n'avez pas de compte ?",
+    "REGISTER": "Inscrivez-vous",
     "LANGUAGE": "LANGUE"
   }
 }

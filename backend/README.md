@@ -188,7 +188,7 @@ Esperado:
 - 302 Found
 - Header `Location` con la URL del proveedor SSO simulado.
 
-Ejemplo: http://simulated-sso-provider.com/auth?client_id=simulated-client-id&redirect_uri=http://localhost:8080/api/auth/sso/callback&code=SIMULATED_CODE_123
+Ejemplo: http://localhost:4200/sso/callback?code=SIMULATED_CODE_123
 
 ```http
 GET /api/auth/sso/callback?code=SIMULATED_CODE_123

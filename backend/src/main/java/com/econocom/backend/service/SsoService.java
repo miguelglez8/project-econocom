@@ -9,15 +9,9 @@ public class SsoService {
     private static final String SIMULATED_CODE = "SIMULATED_CODE_123";
 
     public String buildSsoRedirectUrl() {
-        String clientId = "simulated-client-id";
-        String redirectUri = "http://localhost:8080/api/auth/sso/callback";
+        String redirectUri = "http://localhost:4200/sso/callback";
 
-        return String.format(
-                "http://simulated-sso-provider.com/auth?client_id=%s&redirect_uri=%s&code=%s",
-                clientId,
-                redirectUri,
-                SIMULATED_CODE
-        );
+        return redirectUri + "?code=" + SIMULATED_CODE;
     }
 
     public SsoResponse processCallback(String code, String error) {

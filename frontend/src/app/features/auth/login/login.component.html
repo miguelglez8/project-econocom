@@ -1,5 +1,6 @@
 <div class="login-wrapper">
-  <!-- Lado izquierdo: imagen -->
+
+  <!-- Lado izquierdo: solo imagen -->
   <div class="left-image">
     <img src="/assets/images/login.svg" alt="Ilustración Login">
   </div>
@@ -8,12 +9,15 @@
   <div class="login-form-container">
     <mat-card class="login-card">
 
-      <div class="login-image">
-        <img src="/assets/images/logos/Logo-RD.svg" alt="Ilustración Logo">
+      <!-- Logo arriba -->
+      <div class="login-logo">
+        <img src="/assets/images/logos/Logo-RD.svg" alt="Logo RealDooh">
       </div>
 
+      <!-- Título con margen -->
       <h2 class="login-title">{{ 'LOGIN.TITLE' | translate }}</h2>
 
+      <!-- Formulario -->
       <form [formGroup]="loginForm" (ngSubmit)="submit()">
 
         <mat-form-field appearance="outline" class="full-width">
@@ -26,7 +30,7 @@
 
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>{{ 'LOGIN.PASSWORD' | translate }}</mat-label>
-          <input matInput formControlName="password" type="password">
+          <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password">
           <button mat-icon-button matSuffix type="button" (click)="togglePassword()">
             <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
           </button>
@@ -46,6 +50,7 @@
         </button>
       </form>
 
+      <!-- SSO -->
       <div class="sso-section">
         <span>{{ 'LOGIN.SSO' | translate }}</span>
         <button mat-raised-button color="accent" class="full-width sso-btn" (click)="loginWithSso()">
@@ -53,28 +58,33 @@
         </button>
       </div>
 
-      <div class="register-link">
-        {{ 'LOGIN.REGISTER' | translate }}
+      <!-- Registro -->
+      <div class="register-container">
+        <span class="no-account-text">{{ 'LOGIN.NO_ACCOUNT' | translate }}</span>
+        <a class="register-link" href="">{{ 'LOGIN.REGISTER' | translate }}</a>
       </div>
+    </mat-card>
 
+    
+      <!-- Footer: idioma y logo -->
       <div class="login-footer">
-        <!-- Selector de idioma -->
-        <mat-form-field appearance="fill" class="language-field">
-          <mat-label>{{ 'LOGIN.LANGUAGE' | translate }}</mat-label>
-          <mat-select (selectionChange)="changeLang($event.value)" [value]="translate.currentLang">
-            <mat-option value="es" selected>Español</mat-option>
-            <mat-option value="en">English</mat-option>
-            <mat-option value="fr">Français</mat-option>
-            <mat-option value="pt">Português</mat-option>
-          </mat-select>
-        </mat-form-field>
+        <!-- Selector de idioma hecho a mano -->
+        <div class="language-selector">
+          <span class="language-label">
+            <img src="/assets/icons/globe.svg" alt="Idioma" class="language-icon">
+            {{ 'LOGIN.LANGUAGE' | translate }}:
+          </span>
+          <select #langSelect (change)="changeLang(langSelect.value)" [value]="translate.currentLang">
+            <option value="es">ES</option>
+            <option value="en">EN</option>
+            <option value="fr">FR</option>
+            <option value="pt">PT</option>
+          </select>
+        </div>
 
-        <!-- Logo alineado a la derecha -->
         <div class="footer-logo">
           <img src="/assets/images/logos/Econocom.svg" alt="Econocom Logo">
         </div>
       </div>
-
-    </mat-card>
   </div>
 </div>

@@ -16,25 +16,19 @@ export class SsoCallbackComponent implements OnInit {
     private authService: AuthService
   ) {}
 
+  goHome(): void {
+    window.location.href = 'http://localhost:4200/';
+  }
+
   ngOnInit(): void {
     const code = this.route.snapshot.queryParamMap.get('code');
 
     if (!code) {
-      this.message = 'Código no recibido';
-      this.loading = false;
+      alert('Código no recibido');
+      window.location.href = "http://localhost:4200/"; // volver al inicio
       return;
     }
 
-    this.authService.handleSsoCallback(code)
-      .subscribe({
-        next: () => {
-          this.message = 'SSO correcto';
-          this.loading = false;
-        },
-        error: () => {
-          this.message = 'Error en autenticación SSO';
-          this.loading = false;
-        }
-      });
+    this.authService.handleSsoCallback(code).subscribe();
   }
 }
