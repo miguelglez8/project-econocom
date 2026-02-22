@@ -74,7 +74,7 @@
             <img src="/assets/icons/globe.svg" alt="Idioma" class="language-icon">
             {{ 'LOGIN.LANGUAGE' | translate }}:
           </span>
-          <select #langSelect (change)="changeLang(langSelect.value)" [value]="translate.currentLang">
+          <select #langSelect (change)="changeLang(langSelect.value)" [value]="translate.currentLang || 'es'">
             <option value="es">ES</option>
             <option value="en">EN</option>
             <option value="fr">FR</option>
