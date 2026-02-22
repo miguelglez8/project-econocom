@@ -1,0 +1,16 @@
+{
+  "LOGIN": {
+    "TITLE": "Sign in to your account",
+    "EMAIL": "Email",
+    "EMAIL_ERROR": "Invalid email",
+    "PASSWORD": "Password",
+    "PASSWORD_REQUIRED": "Password is required",
+    "PASSWORD_MINLENGTH": "Password must be at least {{length}} characters",
+    "PASSWORD_PATTERN": "Password must contain letters and numbers",
+    "ENTER": "SIGN IN",
+    "SSO": "Other sign-in methods:",
+    "SSO_BTN": "SIGN IN WITH SSO",
+    "REGISTER": "Don't have an account? Sign up",
+    "LANGUAGE": "LANGUAGE"
+  }
+}

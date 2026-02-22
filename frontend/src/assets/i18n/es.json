@@ -1,0 +1,16 @@
+{
+  "LOGIN": {
+    "TITLE": "Inicia sesión en tu cuenta",
+    "EMAIL": "Correo electrónico",
+    "EMAIL_ERROR": "Email inválido",
+    "PASSWORD": "Contraseña",
+    "PASSWORD_REQUIRED": "La contraseña es obligatoria",
+    "PASSWORD_MINLENGTH": "La contraseña debe tener al menos {{length}} caracteres",
+    "PASSWORD_PATTERN": "La contraseña debe contener letras y números",
+    "ENTER": "ENTRAR",
+    "SSO": "Otras formas de acceso:",
+    "SSO_BTN": "ENTRAR CON SSO",
+    "REGISTER": "¿No tienes cuenta? Regístrate",
+    "LANGUAGE": "IDIOMA"
+  }
+}

@@ -1,0 +1,80 @@
+<div class="login-wrapper">
+  <!-- Lado izquierdo: imagen -->
+  <div class="left-image">
+    <img src="/assets/images/login.svg" alt="Ilustración Login">
+  </div>
+
+  <!-- Lado derecho: formulario -->
+  <div class="login-form-container">
+    <mat-card class="login-card">
+
+      <div class="login-image">
+        <img src="/assets/images/logos/Logo-RD.svg" alt="Ilustración Logo">
+      </div>
+
+      <h2 class="login-title">{{ 'LOGIN.TITLE' | translate }}</h2>
+
+      <form [formGroup]="loginForm" (ngSubmit)="submit()">
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ 'LOGIN.EMAIL' | translate }}</mat-label>
+          <input matInput formControlName="email" type="email">
+          <mat-error *ngIf="loginForm.get('email')?.invalid">
+            {{ 'LOGIN.EMAIL_ERROR' | translate }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ 'LOGIN.PASSWORD' | translate }}</mat-label>
+          <input matInput formControlName="password" type="password">
+          <button mat-icon-button matSuffix type="button" (click)="togglePassword()">
+            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+          <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+            {{ 'LOGIN.PASSWORD_REQUIRED' | translate }}
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
+            {{ 'LOGIN.PASSWORD_MINLENGTH' | translate:{length: 4} }}
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('password')?.hasError('pattern')">
+            {{ 'LOGIN.PASSWORD_PATTERN' | translate }}
+          </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" class="full-width login-btn">
+          {{ 'LOGIN.ENTER' | translate }}
+        </button>
+      </form>
+
+      <div class="sso-section">
+        <span>{{ 'LOGIN.SSO' | translate }}</span>
+        <button mat-raised-button color="accent" class="full-width sso-btn" (click)="loginWithSso()">
+          {{ 'LOGIN.SSO_BTN' | translate }}
+        </button>
+      </div>
+
+      <div class="register-link">
+        {{ 'LOGIN.REGISTER' | translate }}
+      </div>
+
+      <div class="login-footer">
+        <!-- Selector de idioma -->
+        <mat-form-field appearance="fill" class="language-field">
+          <mat-label>{{ 'LOGIN.LANGUAGE' | translate }}</mat-label>
+          <mat-select (selectionChange)="changeLang($event.value)" [value]="translate.currentLang">
+            <mat-option value="es" selected>Español</mat-option>
+            <mat-option value="en">English</mat-option>
+            <mat-option value="fr">Français</mat-option>
+            <mat-option value="pt">Português</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Logo alineado a la derecha -->
+        <div class="footer-logo">
+          <img src="/assets/images/logos/Econocom.svg" alt="Econocom Logo">
+        </div>
+      </div>
+
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,112 @@
+.login-wrapper {
+  display: flex;
+  min-height: 100vh;
+
+  /* Lado izquierdo: imagen */
+  .left-image {
+    flex: 1;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      max-width: 80%;
+    }
+  }
+
+  /* Lado derecho: formulario */
+  .login-form-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+
+    .login-card {
+      width: 360px;
+      padding: 2rem;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+
+      .login-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          max-width: 80%;
+        }
+      }
+
+      .login-title {
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .full-width {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+
+      .login-btn {
+        background-color: #ff6600;
+        color: #fff;
+      }
+
+      .sso-section {
+        margin-top: 1rem;
+        text-align: center;
+
+        span {
+          display: block;
+          margin-bottom: 0.5rem;
+          font-size: 0.9rem;
+          color: #333;
+        }
+
+        .sso-btn {
+          background-color: #006e7f;
+          color: #fff;
+        }
+      }
+
+      .register-link {
+        margin-top: 1rem;
+        text-align: center;
+        font-size: 0.85rem;
+
+        a {
+          color: #ff6600;
+          text-decoration: none;
+          font-weight: 600;
+        }
+      }
+
+      /* Footer de idioma y logo */
+      .login-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2rem;
+        padding-top: 1rem;
+        border-top: 1px solid #e0e0e0;
+
+        .language-field {
+          width: 150px;
+        }
+
+        .footer-logo img {
+          height: 30px;
+        }
+      }
+    }
+  }
+}
+
+/* Botón toggle de contraseña dentro del input */
+.mat-form-field .mat-icon-button {
+  margin-right: 0;
+}

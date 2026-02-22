@@ -1,0 +1,16 @@
+{
+  "LOGIN": {
+    "TITLE": "Connectez-vous à votre compte",
+    "EMAIL": "Adresse e-mail",
+    "EMAIL_ERROR": "Email invalide",
+    "PASSWORD": "Mot de passe",
+    "PASSWORD_REQUIRED": "Le mot de passe est obligatoire",
+    "PASSWORD_MINLENGTH": "Le mot de passe doit contenir au moins {{length}} caractères",
+    "PASSWORD_PATTERN": "Le mot de passe doit contenir des lettres et des chiffres",
+    "ENTER": "SE CONNECTER",
+    "SSO": "Autres méthodes de connexion :",
+    "SSO_BTN": "SE CONNECTER AVEC SSO",
+    "REGISTER": "Vous n'avez pas de compte ? Inscrivez-vous",
+    "LANGUAGE": "LANGUE"
+  }
+}
