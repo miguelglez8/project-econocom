@@ -15,7 +15,7 @@ public class AuthService {
 
     public LoginResponse login(String email, String password) {
         // Simulación sin base de datos
-        if (!email.equals("admin@test.com") || !password.equals("1234")) {
+        if (!email.equals("admin@test.com") || !password.equals("123a")) {
             throw new CredencialesException("Credenciales inválidas");
         }
 

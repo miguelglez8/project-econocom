@@ -65,16 +65,27 @@ Content-Type: application/json
 
 {
   "email": "admin@test.com",
-  "password": "1234"
+  "password": "123a"
 }
 ```
 
-**Ejemplo de response:**
+**Ejemplo de response (caso correcto):**
 
 ```json
 {
   "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...token",
-  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...token"
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...token",
+   "error": null
+}
+```
+
+**Ejemplo de response (credenciales inválidas):**
+
+```json
+{
+   "accessToken": null,
+   "refreshToken": null,
+   "errorMessage": "Credenciales inválidas"
 }
 ```
 

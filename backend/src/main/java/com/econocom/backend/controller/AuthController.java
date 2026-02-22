@@ -4,10 +4,12 @@ import com.econocom.backend.dto.LoginRequest;
 import com.econocom.backend.dto.LoginResponse;
 import com.econocom.backend.dto.RefreshRequest;
 import com.econocom.backend.dto.SsoResponse;
+import com.econocom.backend.exception.CredencialesException;
 import com.econocom.backend.service.AuthService;
 import com.econocom.backend.service.SsoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,9 +28,14 @@ public class AuthController {
 
     @PostMapping("/auth/login")
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest request) {
-        return ResponseEntity.ok(
-                authService.login(request.getEmail(), request.getPassword())
-        );
+        try {
+            return ResponseEntity.ok(
+                    authService.login(request.getEmail(), request.getPassword())
+            );
+        } catch (CredencialesException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(new LoginResponse(null, null, e.getMessage()));
+        }
     }
 
     @PostMapping("/auth/refresh")
