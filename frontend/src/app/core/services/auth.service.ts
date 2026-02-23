@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
-import { LoginRequest } from '../models/login-request.model';
-import { LoginResponse } from '../models/login-response.model';
+import { LoginRequest } from '../models/login.request.model';
+import { LoginResponse } from '../models/login.response.model';
 import { TokenService } from './token.service';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import { SsoResponse } from '../models/sso-response';
+import { SsoResponse } from '../models/sso.response.model';
 
 @Injectable({
   providedIn: 'root'
