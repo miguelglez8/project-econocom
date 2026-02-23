@@ -124,10 +124,10 @@ src/
 │ ├─ app.module.ts                   # Módulo principal de Angular donde se importan todos los módulos
 │ ├─ core/                           # Código central compartido (servicios y modelos)
 │ │ ├─ models/                       # Modelos de datos y DTOs
-│ │ │ ├─ login.request.ts            # Interfaz para la solicitud de login
-│ │ │ ├─ login.response.ts           # Interfaz para la respuesta del login
-│ │ │ ├─ sso.request.ts              # Interfaz para la solicitud SSO
-│ │ │ └─ sso.response.ts             # Interfaz para la respuesta SSO
+│ │ │ ├─ login.request.model.ts      # Interfaz para la solicitud de login
+│ │ │ ├─ login.response.model.ts     # Interfaz para la respuesta del login
+│ │ │ ├─ sso.request.model.ts        # Interfaz para la solicitud SSO
+│ │ │ └─ sso.response.model.ts       # Interfaz para la respuesta SSO
 │ │ └─ services/                     # Servicios que contienen la lógica de negocio y comunicación HTTP
 │ │   ├─ auth.service.ts             # Servicio de autenticación (login y SSO)
 │ │   └─ token.service.ts            # Servicio para manejo de tokens JWT en el frontend
