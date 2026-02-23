@@ -48,7 +48,7 @@ http://localhost:8080
 
 ---
 
-## 🔹 Casos de prueba
+## 🔹 Casos de prueba (NOTA: Todas las pruebas se harán a través de Postman)
 | Caso | Header Authorization                         | Body | Resultado esperado                       | Código HTTP                                  |
 | ---- | -------------------------------------------- | ---- | ---------------------------------------- |----------------------------------------------|
 | 1    | No enviado                                   | N/A  | Bloqueado, token faltante                | 403 Forbidden                             |
@@ -84,7 +84,7 @@ Content-Type: application/json
 }
 ```
 
-**Ejemplo de response (caso correcto):**
+**Ejemplo de response (caso correcto): 200 OK **
 
 ```json
 {
@@ -94,7 +94,7 @@ Content-Type: application/json
 }
 ```
 
-**Ejemplo de response (credenciales inválidas):**
+**Ejemplo de response (credenciales inválidas): 401 UNAUTHORIZED**
 
 ```json
 {
@@ -131,11 +131,19 @@ Content-Type: application/json
 }
 ```
 
-**Ejemplo de response:**
+**Ejemplo de response válida: 200 OK**
 
 ```json
 {
   "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...nuevo"
+}
+```
+
+**Ejemplo de response no válida (token caducado): 401 UNAUTHORIZED**
+
+```json
+{
+   "error": "Refresh token inválido"
 }
 ```
 
@@ -149,6 +157,74 @@ Content-Type: application/json
 4. El cliente guarda ambos:
     - accessToken → para peticiones a endpoints protegidos (`/api/test`, etc.)
     - refreshToken → para renovar el accessToken cuando expire.
+
+# 🧪 Casos de Prueba para Endpoints Protegidos
+
+## ✅ Caso 1: Token válido
+
+**Request**
+
+    GET /api/test
+    Authorization: Bearer <access_token_valido>
+
+**Resultado esperado** - HTTP 200 OK - Respuesta:
+
+    Token válido, acceso permitido!
+
+------------------------------------------------------------------------
+
+## ❌ Caso 2: Token expirado
+
+**Request**
+
+    GET /api/test
+    Authorization: Bearer <access_token_expirado>
+
+**Resultado esperado** - HTTP 401 Unauthorized - Respuesta:
+
+    Token expirado
+
+Ejemplo en backend:
+
+``` java
+response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+response.getWriter().write("Token expirado");
+return;
+```
+
+------------------------------------------------------------------------
+
+## ❌ Caso 3: Token inválido (formato incorrecto o manipulado)
+
+**Request**
+
+    GET /api/test
+    Authorization: Bearer token_invalido
+
+**Resultado esperado** - HTTP 401 Unauthorized - Respuesta:
+
+    Token inválido
+
+Ejemplo en backend:
+
+``` java
+response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+response.getWriter().write("Token inválido");
+return;
+```
+
+------------------------------------------------------------------------
+
+## 🚫 Caso 4: No se envía token en la cabecera
+
+**Request**
+
+    GET /api/test
+    (no Authorization header)
+
+**Resultado esperado** - HTTP 403 Forbidden - Respuesta:
+
+    Acceso denegado. Token requerido.
 
 ---
 
@@ -176,6 +252,8 @@ Además del login tradicional con JWT, el backend implementa un **flujo SSO simu
 4. El backend valida el código:
 - Si es correcto → devuelve un token simulado.
 - Si es incorrecto → devuelve error.
+
+NOTA: Recordar en Postman desactivar la opción de "Automatically follow redirects"
 
 ---
 
