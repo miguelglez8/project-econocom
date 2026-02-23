@@ -1,11 +1,15 @@
+@use '/src/assets/scss/1-settings/variables' as *;
+
 .login-wrapper {
   display: flex;
   min-height: 100vh;
+  background-color: $background-primary;
+  font-family: $font-stack;
 
   /* Lado izquierdo: imagen */
   .left-image {
     flex: 1;
-    background-color: #f5f5f5;
+    background-color: $neutral-95;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,111 +26,103 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #ffffff;
+    background-color: $white;
 
     .login-card {
       width: 360px;
-      padding: 2rem;
-      border-radius: 12px;
+      padding: $spacing-l;
+      border-radius: $border-radius-l;
       display: flex;
       flex-direction: column;
+    }
 
-      .login-logo {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 1.5rem;
+    .login-logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: $spacing-l;
 
-        img {
-          max-width: 80%;
-        }
-      }
-
-      .login-image {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        img {
-          max-width: 80%;
-        }
-      }
-
-      .login-title {
-        text-align: center;
-        margin-bottom: 1.5rem;
-      }
-
-      .full-width {
-        width: 100%;
-        margin-bottom: 1rem;
-      }
-
-      .login-btn {
-        background-color: #ff6600;
-        color: #fff;
-      }
-
-      .sso-section {
-        margin-top: 1rem;
-        text-align: center;
-
-        span {
-          display: block;
-          margin-bottom: 0.5rem;
-          font-size: 0.9rem;
-          color: #333;
-        }
-
-        .sso-btn {
-          background-color: #006e7f;
-          color: #fff;
-        }
-      }
-
-      .register-container {
-        display: flex;
-        gap: 0.25rem;  // pequeño espacio entre el texto y el enlace
-        justify-content: center;
-        align-items: center;
-        font-size: 14px;
-      }
-
-      .no-account-text {
-        color: black;               // texto negro
-      }
-
-      .register-link {
-        color: orange;              // enlace naranja
-        text-decoration: underline; // subrayado
-        font-weight: 500;
-        cursor: pointer;
-
-        &:hover {
-          opacity: 0.8;
-        }
+      img {
+        max-width: 80%;
       }
     }
-    /* Footer de idioma y logo */
+
+    .login-title {
+      text-align: center;
+      margin-bottom: $spacing-l;
+      font-size: $font-ml;
+      color: $neutral-20;
+    }
+
+    .full-width {
+      width: 100%;
+      margin-bottom: $spacing-m;
+    }
+
+    .login-btn {
+      background-color: $primary;
+      color: $white;
+    }
+
+    .sso-section {
+      margin-top: $spacing-m;
+      text-align: center;
+
+      span {
+        display: block;
+        margin-bottom: $spacing-s;
+        font-size: $font-s;
+        color: $black;
+      }
+
+      .sso-btn {
+        background-color: $secondary;
+        color: $white;
+      }
+    }
+
+    .register-container {
+      display: flex;
+      gap: $spacing-xs;
+      justify-content: center;
+      align-items: center;
+      font-size: $font-s;
+    }
+
+    .no-account-text {
+      color: $black;
+    }
+
+    .register-link {
+      color: $primary;
+      text-decoration: underline;
+      font-weight: 500;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    /* Footer */
     .login-footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 2rem;
-      padding-top: 1rem;
+      margin-top: $spacing-xl;
+      padding-top: $spacing-m;
 
       .language-selector {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-        margin-right: 1.5rem;
+        gap: $spacing-s;
+        margin-right: $spacing-l;
 
         .language-label {
           display: flex;
           align-items: center;
-          gap: 0.3rem;
+          gap: $spacing-xs;
           font-weight: 500;
-          color: #333;
+          color: $neutral-30;
 
           .language-icon {
             width: 18px;
@@ -135,21 +131,21 @@
         }
 
         select {
-          background: transparent;     // quita fondo blanco
-          border: 1px solid #ccc;      // borde ligero si quieres
-          border-radius: 4px;
-          padding: 0.25rem 0.5rem;
-          color: #333;
+          background: transparent;
+          border: 1px solid $neutral-80;
+          border-radius: $border-radius-s;
+          padding: $spacing-xs $spacing-s;
+          color: $neutral-20;
           cursor: pointer;
 
           &:focus {
             outline: none;
-            border-color: #ff6600;
+            border-color: $primary;
           }
 
           option {
-            background: #fff;          // opcional, fondo de las opciones
-            color: #000;
+            background: $white;
+            color: $black;
           }
         }
       }
@@ -161,7 +157,7 @@
   }
 }
 
-/* Botón toggle de contraseña dentro del input */
+/* Botón toggle password */
 .mat-form-field .mat-icon-button {
   margin-right: 0;
 }
