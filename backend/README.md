@@ -31,6 +31,21 @@ Este proyecto es un **backend Spring Boot** que implementa autenticación con **
 mvn clean install
 ```
 
+3. Ejecutar la aplicación:
+
+```bash
+mvn spring-boot:run
+```
+O ejecutar la clase principal desde tu IDE.
+
+## 🔹Verificación
+
+El backend debería levantarse en:
+
+```bash
+http://localhost:8080
+```
+
 ---
 
 ## 🔹 Casos de prueba
