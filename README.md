@@ -120,7 +120,6 @@ http://localhost:4200
 ```
 backend/
 frontend/
-docs/
 ```
 
 El frontend sigue arquitectura modular:
