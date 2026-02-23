@@ -17,6 +17,7 @@ El proyecto está dividido en dos aplicaciones independientes:
 ```
 /backend   → Spring Boot (API REST + JWT + SSO simulado)
 /frontend  → Angular 16 + Material (Login + SSO)
+/images    → Captura de pantalla con la web
 ```
 
 ---
@@ -42,7 +43,7 @@ El proyecto está dividido en dos aplicaciones independientes:
 # 📸 Captura de pantalla
 
 <p align="center">
-  <img src="docs/images/login.png" width="700"/>
+  <img src="/images/login.png" width="700"/>
 </p>
 
 ---
