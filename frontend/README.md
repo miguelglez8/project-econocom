@@ -168,24 +168,7 @@ src/
 
 ---
 
-## 🔹 Cómo correr el proyecto
-
-1. Clonar el repositorio y abrir en tu IDE o editor favorito.  
-2. Instalar dependencias:  
-
-```bash
-npm install
-```
-
-3. Levantar el servidor de desarrollo:
-
-```bash
-ng serve
-```
-
-4. Acceder a la app en: http://localhost:4200
-
-🔹 Login tradicional (JWT)
+## 🔹 Login tradicional (JWT)
 
 El usuario ingresa correo electrónico y contraseña (correo: admin@test.com, contraseña: 123a).
 
@@ -197,9 +180,9 @@ El usuario ingresa correo electrónico y contraseña (correo: admin@test.com, co
 
 4. En caso de éxito, se muestra una alerta de -> Login correcto
 
-5. También apareceran mensajes de error cuando se introducen formatos inválidos tanto de correo como contraseña
+5. También apareceran mensajes de error cuando se introducen formatos inválidos tanto de correo como contraseña.
 
-🔹 Flujo SSO (Single Sign-On) simulado
+## 🔹 Flujo SSO (Single Sign-On) simulado
 
 1. El usuario hace clic en "Iniciar sesión con SSO".
 
@@ -213,4 +196,4 @@ El usuario ingresa correo electrónico y contraseña (correo: admin@test.com, co
 
 6. El backend responde con éxito o error, y el frontend muestra el resultado.
 
-7. En este caso siempre devolverá una alerta de Autenticación SSO exitosa al pasar un código fijo en el backend, pero se ha probado todo a través de Postman (cabe destacar que si no se manda el código en el back nuestra aplicación mostrará los errores en forma de alerta también, ya sea Código de autorización inválido u otro caso)
+7. En este caso siempre devolverá una alerta de Autenticación SSO exitosa al pasar un código fijo en el backend, pero se ha probado todo a través de Postman (cabe destacar que si no se manda el código en el back nuestra aplicación mostrará los errores en forma de alerta también, ya sea Código de autorización inválido u otro caso).
