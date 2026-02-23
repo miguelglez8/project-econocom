@@ -12,9 +12,106 @@ Incluye:
 
 ## 🔹 Requisitos
 
+Asegúrate de tener instalado:
+
 - Node.js 20.x  
 - Angular CLI 16.2.16  
 - Material 16.2.14  
+
+Puedes verificar las versiones con:
+
+```bash
+node -v
+ng version
+```
+
+Si no tienes Angular CLI instalado:
+
+```bash
+npm install -g @angular/cli@16.2.16
+```
+
+---
+
+## 🔹 Instalación de dependencias
+
+1️⃣ Instala las dependencias del proyecto:
+
+```bash
+npm install
+```
+
+Este comando instalará todas las dependencias definidas en el archivo `package.json`, incluyendo:
+
+- Angular 16.2.16
+- Angular Material 16.2.14
+- RxJS
+- Zone.js
+- TypeScript
+
+## 🔹 Ejecutar la aplicación en entorno local
+
+Una vez instaladas las dependencias, ejecuta:
+
+```bash
+ng serve
+```
+
+O si deseas especificar el puerto:
+
+```bash
+ng serve --port 4200
+```
+
+## 🔹 Acceso a la aplicación
+
+Por defecto, la aplicación estará disponible en:
+
+```
+http://localhost:4200
+```
+
+## 🔹 Recomendación Importante
+
+⚠️ Asegúrate de que el **backend Spring Boot esté ejecutándose en el puerto 8080** antes de probar el login o el flujo SSO.
+
+El frontend realiza peticiones a:
+
+```
+http://localhost:8080/api/auth/login
+http://localhost:8080/api/auth/sso
+http://localhost:8080/api/auth/sso/callback
+```
+
+Si el backend no está activo, las peticiones devolverán error de conexión.
+
+---
+
+## 🔹 Ejecutar la aplicación en entorno local
+
+Una vez instaladas las dependencias, ejecuta:
+
+```bash
+ng serve
+```
+
+O si deseas especificar el puerto:
+
+```bash
+ng serve --port 4200
+```
+
+---
+
+## 🔹 Acceso a la aplicación
+
+Por defecto, la aplicación estará disponible en:
+
+```
+http://localhost:4200
+```
+
+---
 
 ---
 
@@ -50,7 +147,7 @@ src/
   ├─ i18n/                             # Archivos de internacionalización
   ├─ icons/                            # Íconos utilizados en la aplicación
   ├─ images/                           # Imágenes de la aplicación y diseño
-  └─ scss/                             # Librerías SCSS, variables y mixins globales
+  └─ scss/                             # Librerías SCSS y variables
 
 ---
 
